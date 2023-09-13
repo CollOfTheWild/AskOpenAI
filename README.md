@@ -73,5 +73,8 @@ ask 'Your question here'
 ```
 The tool will then communicate with the OpenAI API and return the response directly in the terminal.
 
+## For Mac
+Use the `which command to find the shebang for your specific install of python
+
 ## Security Note
 Remember to keep your API key secure. Avoid exposing it in public scripts or repositories. Always store your API key in a secure location.
