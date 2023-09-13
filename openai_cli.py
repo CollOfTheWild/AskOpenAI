@@ -7,10 +7,11 @@ openai.api_key = "your-api-key-here"
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: ask 'Your message here'")
+        print("Usage: ask Your message here")
         sys.exit(1)
 
-    user_message_content = sys.argv[1]
+    # Join all the arguments after the command into a single string
+    user_message_content = ' '.join(sys.argv[1:])
 
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
