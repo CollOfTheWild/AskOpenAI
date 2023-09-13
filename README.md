@@ -67,11 +67,17 @@ sudo cp openai_cli.py /usr/local/bin/ask
 ```sh
 sudo chmod +x /usr/local/bin/ask
 ```
-## Usage To use the tool, simply use the `ask` command followed by your query enclosed in single quotes:
+## Usage To use the tool, simply use the `ask` command followed by your query:
 ```sh
-ask 'Your question here'
+ask [Your question here]
 ```
 The tool will then communicate with the OpenAI API and return the response directly in the terminal.
+
+## Using -t
+Using `-t will create an argument specifying a topic. 
+```sh
+ask -t [Your topic] [Your question here]
+```
 
 ## Security Note
 Remember to keep your API key secure. Avoid exposing it in public scripts or repositories. Always store your API key in a secure location.
