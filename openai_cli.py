@@ -7,14 +7,28 @@ openai.api_key = "your-api-key-here"
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: ask Your message here")
+        print("Usage: ask [-t topic] Your message here")
         sys.exit(1)
 
-    # Join all the arguments after the command into a single string
+    # Initialize with default system message
+    system_message = "You are a helpful assistant."
+
+    # Check for the -t flag
+    if '-t' in sys.argv:
+        topic_index = sys.argv.index('-t')
+        if topic_index + 1 < len(sys.argv):  # Ensure there's a topic after -t
+            topic = sys.argv[topic_index + 1]
+            system_message = f"You are a helpful assistant in all things regarding {topic}."
+            # Remove the -t flag and topic from sys.argv
+            del sys.argv[topic_index:topic_index+2]
+        else:
+            print("Error: Missing topic after -t flag.")
+            sys.exit(1)
+
     user_message_content = ' '.join(sys.argv[1:])
 
     messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "system", "content": system_message},
         {"role": "user", "content": user_message_content}
     ]
 
