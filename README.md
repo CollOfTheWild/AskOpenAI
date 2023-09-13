@@ -21,7 +21,7 @@ Find the line that says:
 ```python
 openai.api_key = "your-api-key-here"
 ```
-Replace `"your-api-key-here"` with your actual API key, save the file and exit the editor.
+Replace `your-api-key-here` with your actual API key, save the file and exit the editor.
 ## Script
 Here is the Python script that makes up the core of the CLI tool:
 ```python
