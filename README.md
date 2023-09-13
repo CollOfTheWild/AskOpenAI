@@ -61,7 +61,7 @@ if __name__ == "__main__":
 ### Step 1: Move the Script to a System-wide Location
 Move the script to a directory in the system's PATH, such as `/usr/local/bin` for Linux and Mac. Rename it to `ask` during the move:
 ```sh
-sudo mv openai_cli.py /usr/local/bin/ask
+sudo cp openai_cli.py /usr/local/bin/ask
 ```
 ### Step 2: Make the Script Executable Ensure the script is executable:
 ```sh
