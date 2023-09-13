@@ -59,5 +59,11 @@ ask 'Your question here'
 ```
 The tool will then communicate with the OpenAI API and return the response directly in the terminal.
 
+## Using -t
+Using `-t will create an argument specifying a topic. 
+```sh
+ask -t [Your topic] [Your question here]
+```
+
 ## Security Note
 Remember to keep your API key secure. Avoid exposing it in public scripts or repositories. Always store your API key in a secure location.
