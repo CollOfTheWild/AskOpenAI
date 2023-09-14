@@ -45,7 +45,7 @@ def main():
             filepath = sys.argv[index + 1]
             csv_data = get_csv_data(filepath)
             if csv_data:
-                csv_data_str = "\n".join([", ".join(row) for row in csv_data])  # Convert CSV data to string
+                csv_data_str = " ".join([", ".join(row) for row in csv_data])  # Convert CSV data to string
                 filename = filepath.split('/')[-1]  # Get the file name from the file path
                 user_message_content = (f"I have a dataset in a file named '{filename}'. Here is an example of what the data looks like, as shown below:"
                                         f"{csv_data_str}"
