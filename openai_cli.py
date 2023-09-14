@@ -47,8 +47,8 @@ def main():
             if csv_data:
                 csv_data_str = "\n".join([", ".join(row) for row in csv_data])  # Convert CSV data to string
                 filename = filepath.split('/')[-1]  # Get the file name from the file path
-                user_message_content = (f"I have a dataset in a file named '{filename}'. Here is an example of what the data looks like, as shown below:\n\n"
-                                        f"{csv_data_str}\n\n"
+                user_message_content = (f"I have a dataset in a file named '{filename}'. Here is an example of what the data looks like, as shown below:"
+                                        f"{csv_data_str}"
                                         f"I want you to create a Python script to import this CSV file (named '{filename}') and visualize this data using Seaborn, and then save a PNG of the visualization. Don't include any commentary or instructions, only the Python code. Do not include a code block or backticks.")
                 # Remove the -g flag and filepath from sys.argv
                 del sys.argv[index:index+2]
