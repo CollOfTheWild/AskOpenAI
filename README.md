@@ -19,7 +19,10 @@ You'll need to install the OpenAI Python package to interact with the API. You c
 pip3 install openai
 ```
 ### Step 4: Add Your API Key
-Before you can use the tool, you'll need to add your OpenAI API key to the script. Open the script in a text editor:
+Before you can use the tool, you'll need to add your OpenAI API key to the script.
+Provided that you have created an account with OpenAI and have connected a payment method for API usage, keys can be generated at https://platform.openai.com/account/api-keys
+
+Once you have your key generated, open the script in a text editor:
 ```sh
 nano openai_cli.py
 ```
