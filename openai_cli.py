@@ -47,9 +47,16 @@ def main():
             if csv_data:
                 csv_data_str = " ".join([", ".join(row) for row in csv_data])  # Convert CSV data to string
                 filename = filepath.split('/')[-1]  # Get the file name from the file path
-                user_message_content = (f"I have a dataset in a file named '{filename}'. Here is an example of what the data looks like, as shown below:"
-                                        f"{csv_data_str}"
-                                        f"I want you to create a Python script to import this CSV file (named '{filename}') and visualize this data using Seaborn, and then save a PNG of the visualization. Don't include any commentary or instructions, only the Python code. Do not include a code block or backticks.")
+                user_message_content = (f"I have a dataset in a file named '{filename}'. Here is a sample of the data:"
+                        f"{csv_data_str}"
+                        f"I would like you to create a Python script that imports this CSV file (named '{filename}') and analyzes the data structure to select an appropriate visualization using the Seaborn library. "
+                        f"Adhere to Edward Tufte's principles of data visualization, emphasizing clarity, precision, and efficiency. "
+                        f"For categorical visualizations like bar charts, please use the 'hls' color palette; however, feel free to choose another palette that best suits other types of visualizations. "
+                        f"Consider the distribution of numerical data, relationships between columns, and the presence of categorical data when selecting the visualization type. "
+                        f"The script should save the visualization as a PNG file, be well-structured, and include comments explaining the choice of visualization, the selected color palette, and how the script works. "
+                        f"It should also incorporate error handling for potential data inconsistencies. "
+                        f"Note: Provide only the Python code without any additional commentary or instructions.")
+
                 # Remove the -g flag and filepath from sys.argv
                 del sys.argv[index:index+2]
             else:
@@ -61,39 +68,11 @@ def main():
     else:
         user_message_content = ' '.join(sys.argv[1:])
 
-    # Check for the -sys flag
-    if '-sys' in sys.argv:
-        sys_index = sys.argv.index('-sys')
-        if sys_index + 1 < len(sys.argv):  # Ensure there's a request after -sys
-            # Concatenate everything that comes after -sys into a single string
-            user_request = ' '.join(sys.argv[sys_index + 1:])
-            
-            # Determine the user's operating system and terminal
-            user_os = os.name
-            if user_os == 'posix':
-                user_os = 'Linux/Mac'
-            elif user_os == 'nt':
-                user_os = 'Windows'
-            
-            # Formulate the question for the API
-            user_message_content = f"You must complete this request '{user_request}' and it must be able to run in terminal or its equivalent on {user_os} by simply copying and pasting the response. The person who requested knows what they are doing so they need no warnings about running scripts. Make sure you use any file or folder name they specify in the script if applicable. and any path they specify, if applicable"
-            
-            # Remove the -sys flag and user_request from sys.argv
-            del sys.argv[sys_index:sys_index+2]
-            
-            # Set messages without system message for -sys
-            messages = [{"role": "user", "content": user_message_content}]
-        else:
-            print("Error: Missing request after -sys flag.")
-            sys.exit(1)
-    else:
-        user_message_content = ' '.join(sys.argv[1:])
-
-        # Set messages with system message for other flags
-        messages = [
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": user_message_content}
-        ]
+    # Setting messages outside of the flag blocks to prevent overwriting
+    messages = [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_message_content}
+    ]
 
     try:
         completion = openai.ChatCompletion.create(
