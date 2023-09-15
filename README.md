@@ -1,7 +1,7 @@
 # AskOpenAI: CLI Tool
 AskOpenAI is a simple, clean, and elegant command-line interface (CLI) tool to interact with OpenAI's chat models, such as GPT-4 and GPT-3.5-turbo, directly from your terminal. I made this in a few minutes after looking for something like it and not finding anything. What makes this tool so elegant is the use of the `ask` command, unused elsewhere in Linux or Mac; as well as the minimal code. The Python script ocupies virtually no resources and any delay between prompt and response is contained only to your network latency and the OpenAI response time. The use of the `ask` keyword makes this tool feel like something that has been missing in my linux installations all along. I primarily use it for answering one-off questions relating to System Administration or Python developement and I have found it very quick and intuitive to use inbetween commands or in a TMUX terminal. This guide provides instructions for setting up and using the tool on Linux and Mac systems. Windows setup not included because I don't like Windows.
 ## Installation
-Mac users please make sure that you have both Git and Python3 installed.
+Mac users please make sure that you have both Git and Python3 installed. Here are some basic instructions for installing these packages: https://chat.openai.com/share/4d44546d-7e67-435e-8b61-22c330ce7531
 ### Step 1: Clone the Repository Clone your repository to your local system.
 In your terminal, run:
 ```sh
