@@ -48,13 +48,9 @@ pip3 install openai
 Before you can use the tool, you'll need to add your OpenAI API key to the script.
 Provided that you have created an account with OpenAI and have connected a payment method for API usage, keys can be generated at https://platform.openai.com/account/api-keys
 
-Once you have your key generated, open the script in a text editor:
+Once you have your key generated, export it to your virtual envorinment, please `your-api-key-here` with your actual API key:
 ```sh
-nano openai_cli.py
-```
-Find the line that says:
-```python
-openai.api_key = "your-api-key-here"
+export OPENAI_KEY=your-api-key-here
 ```
 Replace `your-api-key-here` with your actual API key, save the file and exit the editor.
 
@@ -68,8 +64,14 @@ Next, execute the setup.sh script. This script will automatically create a sheba
 ./setup.sh
 ```
 This will ensure that the script uses the correct Python interpreter from the virtual environment where the OpenAI package is installed.
+#### MAC USERS ONLY
+On MacOS the path `/usr/local/bin` must be created before copying the script. This can be done using the following command:
+```sh
+sudo mkdir /usr/local/bin/ask
+```
 ### Step 6: Move the Script to a System-wide Location
-Move the script to a directory in the system's PATH, such as `/usr/local/bin` for Linux and Mac. Rename it to `ask` during the move:
+Move the script to a directory in the system's path, such as `/usr/local/bin` for Linux and Mac. Rename it to `ask` during the move:
+
 ```sh
 sudo cp openai_cli.py /usr/local/bin/ask
 ```

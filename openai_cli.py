@@ -1,10 +1,11 @@
+#!/Users/coll/AskOpenAI/askenv/bin/python3
 
 import openai
 import sys
 import csv
 import os
 
-openai.api_key = "your-api-key-here"
+openai.api_key = os.OPENAI_KEY
 
 # Function to get the data from the beginning of the CSV file
 def get_csv_data(filepath):
